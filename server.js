@@ -2,9 +2,9 @@ const express = require('express')
 const app = express()
 const {db, syncAndSeed, models: {Brewery,Brew}} = require('./db')
 const path =require('path')
-//if you want tousefaker for html <script src ='/node_modules/faker/dist/faker.js></script?
-//
+
 app.use('/dist', express.static(path.join(__dirname, 'dist')))
+app.use('/public', express.static(path.join(__dirname,'public')))
 app.get('/',(req,res,next) => res.sendFile(path.join(__dirname, 'index.html')))
 
 
