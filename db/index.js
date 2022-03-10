@@ -23,8 +23,6 @@ Brewery.generateRandom = function() {
     return this.create({name: faker.company.companyName()})
 }
 
-
-
 const syncAndSeed = async() => {
     try{
         await conn.sync({force: true})
@@ -46,8 +44,8 @@ module.exports = {
     models : {
         Brewery
        
-    },
-    faker
+    }
+
 
 }
 

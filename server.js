@@ -9,7 +9,6 @@ app.use('/public', express.static(path.join(__dirname,'public')))
 app.get('/',(req,res,next) => res.sendFile(path.join(__dirname, 'index.html')))
 
 
-
 app.get('/api/breweries', async(req, res, next) => {
     try{
         res.send(await Brewery.findAll())
@@ -27,7 +26,6 @@ app.post('/api/breweries', async(req, res, next) =>{
         next(ex)
     }
 })
-
 
 
 const init = async() => {

@@ -1,3 +1,9 @@
 body {
-    background-color: red;
+    background-color: cornsilk;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+button:hover {
+    background-color:#002ead;
+    transition: 0.7s;
 }
