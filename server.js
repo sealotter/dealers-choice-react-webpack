@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const {faker, db, syncAndSeed, models: {Brewery}} = require('./db')
+const {db, syncAndSeed, models: {Brewery}} = require('./db')
 const path =require('path')
 
 
@@ -21,9 +21,7 @@ app.get('/api/breweries', async(req, res, next) => {
 
 app.post('/api/breweries', async(req, res, next) =>{
     try{
-    
         res.status(201).send(await Brewery.generateRandom())
-
 
     }catch(ex) {
         next(ex)

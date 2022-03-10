@@ -10,7 +10,7 @@ class App extends React.Component{
         this.state = {
             breweries : []
         }
-        this.create = this.create.bind(this)
+       // this.create = this.create.bind(this)
     }
     
     async componentDidMount() {
@@ -26,13 +26,14 @@ class App extends React.Component{
         this.setState({ breweries  })
        
     }
+
    
     render() {
         const breweries = this.state.breweries
         return (
         <div>
-            <h1>Top Breweries too try</h1>
-            <h3>Click to see some more: <button onClick = {this.create}>Add A Brew</button> </h3>
+            <h1>Top Breweries To Try</h1>
+            <h3>Click to see some more: <button onClick = {this.create.bind(this)}>Add A Brew</button> </h3>
             
             <div>
                 <ul>
