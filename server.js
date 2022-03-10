@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
-const {db, syncAndSeed, models: {Brewery,Brew}} = require('./db')
+const {faker, db, syncAndSeed, models: {Brewery}} = require('./db')
 const path =require('path')
+
 
 app.use('/dist', express.static(path.join(__dirname, 'dist')))
 app.use('/public', express.static(path.join(__dirname,'public')))
@@ -20,8 +21,9 @@ app.get('/api/breweries', async(req, res, next) => {
 
 app.post('/api/breweries', async(req, res, next) =>{
     try{
-        const brewery = await Brewery.create(req.body)
-        res.status(201).send(brewery)
+    
+        res.status(201).send(await Brewery.generateRandom())
+
 
     }catch(ex) {
         next(ex)
@@ -29,13 +31,6 @@ app.post('/api/breweries', async(req, res, next) =>{
 })
 
 
-app.get('/api/breweries/:id', async(req, res, next) => {
-    try{
-
-    }catch(ex){
-        next(ex)
-    }
-})
 
 const init = async() => {
     try{
